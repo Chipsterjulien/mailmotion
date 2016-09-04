@@ -1,0 +1,27 @@
+# logtype can take: debug, info, notice, warning, error, critical
+# warning is the default
+logtype = "debug"
+
+[default]
+# Time to sleep before starting (time in second)
+sleepBeforeStarting = 10
+# Time to sleep in second before looking new pictures (time in second)
+sleepTime = 2
+# Directory where motion's pictures were saving
+picturePath = ""
+
+[email]
+# Your email
+from = ""
+# Smtp of your email
+smtp = ""
+# TLS port
+port = 587
+# Your email login
+login = ""
+# Your email password
+password = ""
+# Who are send emails
+sendTo = [""]
+# Subject of email
+subject = ""

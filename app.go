@@ -1,17 +1,18 @@
 package main
 
 import (
-	"bitbucket.org/zombiezen/cardcpx/natsort"
 	"fmt"
-	"github.com/jordan-wright/email"
-	"github.com/op/go-logging"
-	"github.com/spf13/viper"
 	"net/smtp"
 	"os"
 	"path"
 	"path/filepath"
 	"strings"
 	"time"
+
+	"bitbucket.org/zombiezen/cardcpx/natsort"
+	"github.com/jordan-wright/email"
+	"github.com/op/go-logging"
+	"github.com/spf13/viper"
 )
 
 type piece struct {
@@ -159,8 +160,8 @@ func startApp() {
 	emailChan := make(chan piece, 80)
 	removeChan := make(chan string, 80)
 
-	mySmtp := viper.GetString("email.smtp")
-	host := fmt.Sprintf("%s:%d", mySmtp, viper.GetInt("email.port"))
+	mySMTP := viper.GetString("email.smtp")
+	host := fmt.Sprintf("%s:%d", mySMTP, viper.GetInt("email.port"))
 	login := viper.GetString("email.login")
 	password := viper.GetString("email.password")
 	sleepBefore := viper.GetInt("default.sleepBeforeStarting")
@@ -172,7 +173,7 @@ func startApp() {
 
 	createPath(&newPath)
 
-	pool := email.NewPool(host, 4, smtp.PlainAuth("", login, password, mySmtp))
+	pool := email.NewPool(host, 4, smtp.PlainAuth("", login, password, mySMTP))
 	// Start remove picture goroutine
 	go removePicture(removeChan)
 

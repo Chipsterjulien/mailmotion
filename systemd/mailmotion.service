@@ -1,0 +1,15 @@
+[Unit]
+Description=Send an email with a picture
+Wants=network.target
+After=network.target
+
+[Service]
+Type=simple
+User=http
+Group=http
+ExecStart=/usr/bin/mailmotion
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

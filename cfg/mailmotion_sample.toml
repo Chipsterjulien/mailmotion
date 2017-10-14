@@ -9,6 +9,8 @@ sleepBeforeStarting = 10
 sleepTime = 2
 # Directory where motion's pictures were saving
 picturePath = ""
+# Default pictureExt
+pictureExt = ["*.jpg", "*.ppm"]
 
 [email]
 # Your email
